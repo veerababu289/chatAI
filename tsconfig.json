@@ -1,0 +1,40 @@
+{
+  // See https://aka.ms/tsconfig to read more about this file
+  "compilerOptions": {
+    // --- Environment and Module System ---
+    "target": "es2022", // Target modern Node.js versions (e.g., LTS versions like 18.x or 20.x)
+    "module": "nodenext", // Use the modern Node.js ES module system
+    "moduleResolution": "nodenext", // How TS finds modules, aligns with `module`
+    "lib": ["esnext"], // Includes modern JS features, no DOM types needed for backend
+    "types": ["node"], // Explicitly include Node.js type definitions
+
+    // --- Project Structure ---
+    "rootDir": "./src", // Your source code lives here
+    "outDir": "./dist", // Compiled JavaScript output goes here
+    "sourceMap": true, // Generate source maps for easier debugging
+    "declaration": true, // Recommended for libraries, but useful for apps too
+    "declarationMap": true, // Corresponds to `declaration` for better IDE support
+
+    // --- Strictness and Code Quality (Retained from your original) ---
+    "strict": true,
+    "noUncheckedIndexedAccess": true, // Ensures safe access to array elements and object properties
+    "exactOptionalPropertyTypes": true, // Prevents assigning `undefined` to optional properties
+
+    // --- Style and Safety ---
+    "noUnusedLocals": true, // Catches unused local variables
+    "noUnusedParameters": true, // Catches unused function parameters
+    "noFallthroughCasesInSwitch": true, // Prevents switch case fall-through bugs
+    "noImplicitReturns": true, // Ensures all code paths in a function return a value
+
+    // --- Interoperability and Recommended Settings ---
+    "esModuleInterop": true, // Greatly improves compatibility with CommonJS modules
+    "verbatimModuleSyntax": true, // Enforces consistent import/export syntax
+    "isolatedModules": true, // Ensures each file can be transpiled independently
+    "moduleDetection": "force", // Guarantees files are treated as modules
+
+    // --- Performance ---
+    "skipLibCheck": true // Speeds up compilation by not type-checking library files (.d.ts)
+  },
+  "include": ["src/**/*"], // Tell TypeScript to compile everything inside the `src` folder
+  "exclude": ["node_modules", "dist"] // Exclude dependencies and the output folder
+}
